@@ -85,6 +85,88 @@ p { margin: 0 0 1rem; color: var(--muted); }
 .hero {
   padding: 6rem 0 3rem;
 }
+.home .hero.hero-image {
+  padding: 0;
+}
+.hero-image .container { position: relative; }
+.home .hero-image .container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.hero-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(34rem, 76vh, 48rem);
+  padding: clamp(2rem, 4vw, 4rem);
+  border-radius: calc(var(--radius) + 10px);
+  border: 1px solid rgba(255,255,255,.84);
+  box-shadow: 0 32px 70px rgba(19, 41, 78, .14);
+  background:
+    linear-gradient(90deg, rgba(246,248,252,.97) 0%, rgba(246,248,252,.95) 28%, rgba(246,248,252,.80) 54%, rgba(246,248,252,.36) 100%),
+    url('hero-background.png') center right / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+.home .hero-stage {
+  min-height: calc(100vh - 86px);
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  box-shadow: none;
+  padding: clamp(2.25rem, 5vw, 5rem) min(8vw, 7rem) clamp(2.5rem, 7vw, 5rem);
+  background:
+    linear-gradient(90deg, rgba(246,248,252,.94) 0%, rgba(246,248,252,.90) 23%, rgba(246,248,252,.72) 42%, rgba(246,248,252,.34) 68%, rgba(246,248,252,.16) 100%),
+    url('hero-background.png') center center / cover no-repeat;
+  align-items: center;
+}
+.hero-stage::before {
+  content: '';
+  position: absolute;
+  inset: auto auto -12% -6%;
+  width: 38rem;
+  height: 16rem;
+  background: radial-gradient(circle, rgba(60,104,170,.16), transparent 68%);
+  pointer-events: none;
+}
+.hero-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+  pointer-events: none;
+}
+.hero-copy-wide {
+  position: relative;
+  z-index: 1;
+  max-width: 58rem;
+}
+.hero-copy-wide h1 {
+  max-width: 9ch;
+  margin-top: 1rem;
+}
+.hero-copy-wide .lead {
+  max-width: 42rem;
+  font-size: 1.2rem;
+}
+.hero-image .metric-grid {
+  max-width: 58rem;
+  margin-top: 2rem;
+}
+.home .hero-copy-wide {
+  max-width: min(62rem, 100%);
+}
+.home .hero-copy-wide h1 {
+  max-width: 10ch;
+}
+.home .hero-copy-wide .lead {
+  max-width: 40rem;
+}
+.hero-image .metric {
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(16px);
+}
 .hero-grid {
   display: grid; grid-template-columns: 1.4fr .95fr; gap: 2rem; align-items: stretch;
 }
@@ -228,6 +310,11 @@ form .btn { border: none; }
   .nav-links a { padding: .85rem 1rem; }
   .grid-2, .grid-3, .form-grid { grid-template-columns: 1fr; }
   .hero { padding-top: 4.2rem; }
+  .hero-stage { min-height: auto; padding: 1.5rem; background-position: 68% center; }
+  .home .hero-stage { background-position: 60% center; }
+  .hero-copy-wide h1 { max-width: none; }
+  .hero-copy-wide .lead { font-size: 1.05rem; }
   .hero-card { min-height: auto; }
   .path-mini { margin-top: 8rem; }
 }
+
