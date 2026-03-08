@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Alternis Consulting</title>
+  <meta name="description" content="Admin interface for managing insights and case studies in the Alternis Consulting prototype site." />
+  <meta name="theme-color" content="#3c68aa" />
+  <meta property="og:title" content="Admin | Alternis Consulting" />
+  <meta property="og:description" content="Admin interface for managing insights and case studies in the Alternis Consulting prototype site." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body class="">
+
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html" aria-label="Alternis Consulting home">
+          <img src="logo.png" alt="Alternis Consulting logo" />
+          <span>Alternis Consulting</span>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle navigation">Menu</button>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html" class="">Home</a>
+<a href="services.html" class="">Services</a>
+<a href="case-studies.html" class="">Case Studies</a>
+<a href="insights.html" class="">Insights</a>
+<a href="careers.html" class="">Careers</a>
+<a href="about.html" class="">About</a>
+<a href="contact.html" class="">Contact</a>
+          <a href="admin.html" class="active">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+        <main>
+          <section class="page-hero">
+            <div class="container">
+              <span class="eyebrow">Admin</span>
+              <h1>Manage insights and case studies</h1>
+              <p class="lead">This prototype includes a browser-based admin experience using local storage. Non-technical users can create, edit, publish, unpublish, tag, and update content without touching code.</p>
+              <div class="notice">For production use, connect this front-end to a real CMS or backend service. The current admin works in the browser on the device where content is created.</div>
+            </div>
+          </section>
+          <section class="section-tight">
+            <div class="container">
+              <div class="admin-tabs">
+                <button class="btn btn-primary" data-panel="panel-case-studies">Case Studies</button>
+                <button class="btn btn-secondary" data-panel="panel-insights">Insights</button>
+              </div>
+              <div class="admin-panel active" id="panel-case-studies">
+                <div class="two-column-layout">
+                  <div class="card">
+                    <div class="kicker">Editor</div>
+                    <h3>Create or update a case study</h3>
+                    <form id="caseStudyForm">
+                      <input type="hidden" name="id">
+                      <input type="hidden" name="imageData">
+                      <div class="form-grid">
+                        <input class="input" name="title" placeholder="Title" required>
+                        <input class="input" name="slug" placeholder="Slug (optional)">
+                      </div>
+                      <div style="height:1rem"></div>
+                      <textarea class="textarea" name="summary" placeholder="Summary" required></textarea>
+                      <div style="height:1rem"></div>
+                      <div class="form-grid">
+                        <input class="input" name="author" placeholder="Author" value="Alternis Consulting" required>
+                        <input class="input" type="date" name="date" required>
+                      </div>
+                      <div style="height:1rem"></div>
+                      <input class="input" name="tags" placeholder="Tags, comma separated">
+                      <div style="height:1rem"></div>
+                      <div class="form-grid">
+                        <input class="input" name="seoTitle" placeholder="SEO title">
+                        <input class="input" name="seoDescription" placeholder="SEO description">
+                      </div>
+                      <div style="height:1rem"></div>
+                      <label class="small">Upload image</label>
+                      <input class="input" type="file" accept="image/*">
+                      <div style="height:1rem"></div>
+                      <textarea class="textarea" name="body" placeholder="HTML body content. Example: <h2>Challenge</h2><p>...</p>" required></textarea>
+                      <div style="height:1rem"></div>
+                      <label style="display:flex; gap:.6rem; align-items:center;"><input type="checkbox" name="published"> Publish</label>
+                      <div class="btn-row">
+                        <button class="btn btn-primary" type="submit">Save case study</button>
+                        <button class="btn btn-secondary" type="button" data-reset="case-study">Reset to defaults</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card">
+                    <div class="kicker">Current content</div>
+                    <h3>Available case studies</h3>
+                    <div id="caseStudyList"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-panel" id="panel-insights">
+                <div class="two-column-layout">
+                  <div class="card">
+                    <div class="kicker">Editor</div>
+                    <h3>Create or update an insight</h3>
+                    <form id="insightForm">
+                      <input type="hidden" name="id">
+                      <input type="hidden" name="imageData">
+                      <div class="form-grid">
+                        <input class="input" name="title" placeholder="Title" required>
+                        <input class="input" name="slug" placeholder="Slug (optional)">
+                      </div>
+                      <div style="height:1rem"></div>
+                      <textarea class="textarea" name="summary" placeholder="Summary" required></textarea>
+                      <div style="height:1rem"></div>
+                      <div class="form-grid">
+                        <input class="input" name="author" placeholder="Author" value="Alternis Consulting" required>
+                        <input class="input" type="date" name="date" required>
+                      </div>
+                      <div style="height:1rem"></div>
+                      <input class="input" name="tags" placeholder="Tags, comma separated">
+                      <div style="height:1rem"></div>
+                      <div class="form-grid">
+                        <input class="input" name="seoTitle" placeholder="SEO title">
+                        <input class="input" name="seoDescription" placeholder="SEO description">
+                      </div>
+                      <div style="height:1rem"></div>
+                      <label class="small">Upload image</label>
+                      <input class="input" type="file" accept="image/*">
+                      <div style="height:1rem"></div>
+                      <textarea class="textarea" name="body" placeholder="HTML body content. Example: <h2>Why this matters</h2><p>...</p>" required></textarea>
+                      <div style="height:1rem"></div>
+                      <label style="display:flex; gap:.6rem; align-items:center;"><input type="checkbox" name="published"> Publish</label>
+                      <div class="btn-row">
+                        <button class="btn btn-primary" type="submit">Save insight</button>
+                        <button class="btn btn-secondary" type="button" data-reset="insight">Reset to defaults</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card">
+                    <div class="kicker">Current content</div>
+                    <h3>Available insights</h3>
+                    <div id="insightList"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img src="logo.png" alt="Alternis Consulting logo" style="height:46px; width:auto; margin-bottom:1rem;">
+            <p>Alternis Consulting engineers modern enterprise software and practical AI solutions with deep Microsoft expertise.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="insights.html">Insights</a>
+            <a href="about.html">About</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="mailto:info@alternisconsulting.com">info@alternisconsulting.com</a>
+            <a href="contact.html">Discuss your project</a>
+            <a href="careers.html">Careers</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 Alternis Consulting. Built for modern enterprise visibility.</span>
+          <span>SEO-ready · AI-discoverable · Admin-editable</span>
+        </div>
+      </div>
+    </footer>
+
+<script src="main.js"></script>
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
