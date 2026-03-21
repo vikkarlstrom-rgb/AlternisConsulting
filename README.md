@@ -19,7 +19,7 @@ Open `index.html` directly in a browser, or serve the folder from a simple stati
 
 
 ## Contact form
-The contact form is wired to FormSubmit and sends submissions to `info@alternisconsulting.com`.
+The contact form is wired to FormSubmit and sends submissions to the Alternis Consulting inbox.
 
 Important:
 - The very first submission triggers a one-time activation email from FormSubmit.
